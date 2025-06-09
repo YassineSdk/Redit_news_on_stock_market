@@ -15,10 +15,16 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 
 st.set_page_config(page_title='Signal analysis of stocks',layout='wide')
-image_url = "https://i.ibb.co/KJBtPVm/491362538070.jpg"
 
-page_bg_img = f'''
+image_url = "https://i.ibb.co/4g0m58X8/3334896.jpg"
+
+page_bg_img = f"""
 <style>
+html, body {{
+    height: 100%;
+    margin: 0;
+}}
+
 [data-testid="stAppViewContainer"] {{
     background-image: url("{image_url}");
     background-size: cover;
@@ -26,12 +32,15 @@ page_bg_img = f'''
     background-repeat: no-repeat;
     background-attachment: fixed;
 }}
+
+main .block-container {{
+    padding-top: 2rem;
+    background-color: rgba(0, 0, 0, 0); /* transparent main container */
+}}
 </style>
-'''
+"""
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
-
-
 
 st.title("NLP-Powered Financial Sentiment Tracker")
 
