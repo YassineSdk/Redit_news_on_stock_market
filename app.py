@@ -16,31 +16,6 @@ from sklearn.preprocessing import MinMaxScaler
 
 st.set_page_config(page_title='Signal analysis of stocks',layout='wide')
 
-image_url = "https://i.ibb.co/4g0m58X8/3334896.jpg"
-
-page_bg_img = f"""
-<style>
-html, body {{
-    height: 100%;
-    margin: 0;
-}}
-
-[data-testid="stAppViewContainer"] {{
-    background-image: url("{image_url}");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}}
-
-main .block-container {{
-    padding-top: 2rem;
-    background-color: rgba(0, 0, 0, 0); /* transparent main container */
-}}
-</style>
-"""
-
-st.markdown(page_bg_img, unsafe_allow_html=True)
 
 st.title("NLP-Powered Financial Sentiment Tracker")
 
@@ -112,8 +87,7 @@ if button :
             mode='lines+markers',
             yaxis='y2',
             name='Closing price on the NVDA stocks',
-            line=dict(color='green')
-        ))
+            line=dict(shape='spline', smoothing=1.3,color='green')))
 
         # Reinforced Sentiment (left y-axis)
         fig.add_trace(go.Scatter(
@@ -123,7 +97,7 @@ if button :
             yaxis='y1',
             name='Sentiment',
             marker=dict(color=final_data['color']),
-            line=dict(color='blue')
+            line=dict(shape='spline', smoothing=1.3,color='blue')
         ))
 
 
